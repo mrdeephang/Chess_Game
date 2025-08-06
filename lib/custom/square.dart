@@ -6,6 +6,7 @@ class Square extends StatelessWidget {
   final bool isWhite;
   final ChessPiece? piece;
   final bool isSelected;
+  final bool isValidMove;
   final void Function()? onTap;
 
   const Square({
@@ -14,6 +15,7 @@ class Square extends StatelessWidget {
     required this.piece,
     required this.isSelected,
     required this.onTap,
+    required this.isValidMove,
   });
 
   @override
@@ -21,7 +23,11 @@ class Square extends StatelessWidget {
     Color? squareColor;
     if (isSelected) {
       squareColor = Colors.green;
-    } else {
+    }
+    else if(isValidMove){
+   squareColor=Colors.green[300];
+    } 
+    else {
       squareColor = isWhite ? color1 : color2;
     }
     return GestureDetector(
