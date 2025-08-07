@@ -27,7 +27,7 @@ class _GamePageState extends State<GamePage> {
   List<int> blackKingPosition = [0, 4];
   bool checkStatus = false; //initially always false
 
-  // Castling Initialization
+  // castling initialization
   bool whiteKingMoved = false;
   bool blackKingMoved = false;
   bool whiteRookKingSideMoved = false;

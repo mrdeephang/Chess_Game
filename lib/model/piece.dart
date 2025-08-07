@@ -1,4 +1,11 @@
-enum ChessPieceType { pawn, rook, knight, bishop, queen, king }
+enum ChessPieceType {
+  pawn,
+  rook,
+  knight,
+  bishop,
+  queen,
+  king,
+} //enum for defining fixed set of pieces
 
 class ChessPiece {
   final ChessPieceType type;

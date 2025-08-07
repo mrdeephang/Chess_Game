@@ -1,6 +1,6 @@
 # Chess
 
-**Chess game made using flutter**
+**Chess game made using flutter within a short time constraint**
 
 ## Features
 
