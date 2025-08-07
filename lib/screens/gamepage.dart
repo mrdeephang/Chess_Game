@@ -1,6 +1,6 @@
-import 'package:chess_game/custom/deadpiece.dart';
-import 'package:chess_game/custom/piece.dart';
-import 'package:chess_game/custom/square.dart';
+import 'package:chess_game/model/deadpiece.dart';
+import 'package:chess_game/model/piece.dart';
+import 'package:chess_game/model/square.dart';
 import 'package:chess_game/easyconst/color.dart';
 import 'package:chess_game/helper/helper_methods.dart';
 import 'package:flutter/material.dart';
@@ -588,13 +588,13 @@ class _GamePageState extends State<GamePage> {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          backgroundColor: Colors.blue,
+          backgroundColor: color2,
           title: Text(
             'CHECK MATE!!',
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
-              fontSize: 30,
+              fontSize: 25,
             ),
           ),
           actions: [
@@ -606,7 +606,7 @@ class _GamePageState extends State<GamePage> {
                 style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontSize: 20,
+                  fontSize: 18,
                 ),
               ),
             ),
@@ -752,7 +752,7 @@ class _GamePageState extends State<GamePage> {
     return Scaffold(
       backgroundColor: color1,
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: color2,
         centerTitle: true,
         title: Text(
           checkStatus ? 'CHECK!' : "",
@@ -764,9 +764,24 @@ class _GamePageState extends State<GamePage> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 20),
+        padding: const EdgeInsets.only(top: 5, bottom: 5),
         child: Column(
           children: [
+            Card(
+              elevation: 8,
+              color: Colors.black,
+              child: Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Text(
+                  'Black',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
             //whitepieces killed
             Expanded(
               child: GridView.builder(
@@ -783,7 +798,7 @@ class _GamePageState extends State<GamePage> {
               ),
             ),
             Expanded(
-              flex: 3,
+              flex: 4,
               child: GridView.builder(
                 itemCount: 8 * 8,
                 physics: NeverScrollableScrollPhysics(),
@@ -800,17 +815,26 @@ class _GamePageState extends State<GamePage> {
                       isValidMove = true;
                     }
                   }
+                  //castling color change logic
+                  bool isCastlingMove = false;
+                  if (selectedPiece?.type == ChessPieceType.king &&
+                      (selectedCol - col).abs() == 2 &&
+                      validMoves.any(
+                        (move) => move[0] == row && move[1] == col,
+                      )) {
+                    isCastlingMove = true;
+                  }
                   return Square(
                     isWhite: isWhite(index),
                     piece: board[row][col],
                     isSelected: isSelected,
                     isValidMove: isValidMove,
+                    isCastlingMove: isCastlingMove, //sending castling status
                     onTap: () => pieceSelected(row, col),
                   );
                 },
               ),
             ),
-            //Check Status
 
             //blackpieces killed
             Expanded(
@@ -826,11 +850,26 @@ class _GamePageState extends State<GamePage> {
                 ),
               ),
             ),
+            Card(
+              elevation: 8,
+              color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Text(
+                  'White',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.blue,
+        backgroundColor: color2,
         onPressed: () => resetgame(),
         child: Icon(Icons.restart_alt, color: Colors.white),
       ),

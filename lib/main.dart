@@ -1,4 +1,4 @@
-import 'package:chess_game/screens/gamepage.dart';
+import 'package:chess_game/screens/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,9 +11,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: true,
-      home: GamePage(),
-      theme: ThemeData(primarySwatch: Colors.blue, fontFamily: 'Poppins'),
+      debugShowCheckedModeBanner: false,
+      home: Splash(),
+      theme: ThemeData(fontFamily: 'Poppins'),
     );
   }
 }

@@ -1,12 +1,26 @@
-# chess_game
+# Chess
 
 **Chess game made using flutter**
+
+## Features
+
+- Two Players can play
+- Castling is possible
+- Check Alert
+- Checkmate Dialog
+- Reset game on clicking floatingactionbutton & Clicked on Play Again on Checkmate
 
 ## Requirements
 
 - Flutter SDK (v3.0+)
 - Android Studio or VS Code
 - Emulator or physical device
+
+## Packages Used(Minimalist)
+
+- flutter_launcher_icons(For App Icon)
+- lottie (For Splash Animation Loading)
+- No State Management Used(UI is simply updated using SetState((){}))
 
 ## Folder Structure
 
@@ -32,6 +46,8 @@
 ## Future Enhancement
 
 - Add play with AI
+- Adding Undo Option
+- Promoting of Pawn when it reaches Opponent End
 
 ## Author
 
