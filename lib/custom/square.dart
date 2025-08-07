@@ -7,40 +7,53 @@ class Square extends StatelessWidget {
   final ChessPiece? piece;
   final bool isSelected;
   final bool isValidMove;
-  final void Function()? onTap;
+  final VoidCallback onTap; // Changed to non-nullable
 
   const Square({
     super.key,
     required this.isWhite,
     required this.piece,
     required this.isSelected,
-    required this.onTap,
     required this.isValidMove,
+    required this.onTap, // Now required
   });
 
   @override
   Widget build(BuildContext context) {
-    Color? squareColor;
-    if (isSelected) {
-      squareColor = Colors.green;
-    }
-    else if(isValidMove){
-   squareColor=Colors.green[300];
-    } 
-    else {
-      squareColor = isWhite ? color1 : color2;
-    }
+    // Determine square color safely
+    final Color? squareColor = _getSquareColor();
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
         color: squareColor,
-        child: piece != null
-            ? Image.asset(
-                piece!.imagePath,
-                color: piece!.isWhite ? Colors.white : Colors.black,
-              )
-            : null,
+        margin: EdgeInsets.all(
+          isValidMove ? 8 : 0,
+        ), // Small margin between squares
+        child: _buildPieceContent(),
       ),
     );
+  }
+
+  Color? _getSquareColor() {
+    if (isSelected) return Colors.green;
+    if (isValidMove) return Colors.green[300] ?? Colors.green; // Fallback
+    return isWhite ? color1 : color2;
+  }
+
+  Widget? _buildPieceContent() {
+    if (piece == null) return null;
+
+    try {
+      return Image.asset(
+        piece!.imagePath,
+        color: piece!.isWhite ? Colors.white : Colors.black,
+        errorBuilder: (context, error, stackTrace) =>
+            const Icon(Icons.error), // Fallback for missing images
+      );
+    } catch (e) {
+      debugPrint('Error loading piece image: $e');
+      return const Icon(Icons.error_outline);
+    }
   }
 }
