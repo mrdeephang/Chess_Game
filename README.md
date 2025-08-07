@@ -48,7 +48,7 @@
 - Add play with AI
 - Adding Undo Option
 - Promoting of Pawn when it reaches Opponent End
-- Locally save game progress even when game is closed using (sharedpreferences, sqlite or hive)
+- Locally save game progress even when game is closed using (sharedpreferences or sqlite or hive)
 
 ## Author
 
