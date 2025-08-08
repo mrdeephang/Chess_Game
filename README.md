@@ -20,22 +20,23 @@
 
 - flutter_launcher_icons(For App Icon)
 - lottie (For Splash Animation Loading)
-- No State Management Used(UI is simply updated using SetState((){}))
+- UI is simply updated using SetState((){})
 
 ## Folder Structure
 
 ├── lib/
-│ ├── custom/
-│ │ ├── piece.dart
-│ │ ├── square.dart
+│ ├── models/
+| | ├── deadpiece.dart #Manages captured chess pieces that are no longer in play.
+│ │ ├── piece.dart #Defines the chess piece model with properties like type, color, and movement rules.
+│ │ ├── square.dart #Represents an individual chessboard square that can contain a piece and handle interactions.
 │ ├── easyconst/
-│ │ ├── color.dart
+│ │ ├── color.dart #constant color values used for the chessboard and UI elements
 │ ├── helper/
-│ │ ├── helper_methods.dart
+│ │ ├── helper_methods.dart #utility functions for game logic
 │ ├── screens/
-│ │ ├── gamepage.dart
-│ │ ├── splash.dart
-│ ├── main.dart
+│ │ ├── gamepage.dart #maingame page
+│ │ ├── splash.dart #initial welcome splash screen
+│ ├── main.dart #main entry
 
 ## How to Run
 

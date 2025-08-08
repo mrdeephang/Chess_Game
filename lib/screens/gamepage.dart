@@ -1,6 +1,6 @@
-import 'package:chess_game/model/deadpiece.dart';
-import 'package:chess_game/model/piece.dart';
-import 'package:chess_game/model/square.dart';
+import 'package:chess_game/models/deadpiece.dart';
+import 'package:chess_game/models/piece.dart';
+import 'package:chess_game/models/square.dart';
 import 'package:chess_game/easyconst/color.dart';
 import 'package:chess_game/helper/helper_methods.dart';
 import 'package:flutter/material.dart';
@@ -37,8 +37,8 @@ class _GamePageState extends State<GamePage> {
 
   @override
   void initState() {
-    super.initState();
-    _initializeBoard();
+    super.initState(); //unpacking the board 
+    _initializeBoard(); //sets up the chessboard (places pieces in starting positions).
   }
 
   //initialization of board
@@ -214,7 +214,6 @@ class _GamePageState extends State<GamePage> {
     switch (piece.type) {
       case ChessPieceType.pawn:
         // pawn can move forward if the square is not occupied
-
         // Forward move
         if (isInBoard(row + direction, col) &&
             board[row + direction][col] == null) {
@@ -517,6 +516,7 @@ class _GamePageState extends State<GamePage> {
 
   //Move Piece
   void movePiece(int newRow, int newCol) {
+    
     bool isCastling =
         selectedPiece!.type == ChessPieceType.king &&
         (selectedCol - newCol).abs() == 2;

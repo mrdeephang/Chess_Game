@@ -5,7 +5,7 @@ enum ChessPieceType {
   bishop,
   queen,
   king,
-} //enum for defining fixed set of pieces
+} //enum for defining fixed set of pieces //special kind of class ho
 
 class ChessPiece {
   final ChessPieceType type;

@@ -1,15 +1,14 @@
-import 'package:chess_game/model/piece.dart';
+import 'package:chess_game/models/piece.dart';
 import 'package:chess_game/easyconst/color.dart';
 import 'package:flutter/material.dart';
 
 class Square extends StatelessWidget {
-  final bool isWhite;
-  final ChessPiece? piece;
-  final bool isSelected;
-  final bool isValidMove;
-  final bool isCastlingMove;
-  final VoidCallback onTap;
-
+  final bool isWhite; //Determines if the square is white or black
+  final ChessPiece? piece; //Optional ChessPiece that might be on this square
+  final bool isSelected; // Whether this square is currently selected
+  final bool isValidMove; //Whether this square is a valid move target
+  final bool isCastlingMove; //Special flag for castling moves
+  final VoidCallback onTap; //Callback when the square is tapped simple do somthing function just runs code no input no output
   const Square({
     super.key,
     required this.isWhite,
@@ -22,7 +21,8 @@ class Square extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color? squareColor = _getSquareColor();
+    final Color? squareColor =
+        _getSquareColor(); //gets appropriate color for the square made for color change in castling
 
     return GestureDetector(
       onTap: onTap,
@@ -34,6 +34,7 @@ class Square extends StatelessWidget {
     );
   }
 
+  //helper method to get appropriate color
   Color? _getSquareColor() {
     if (isSelected) {
       return Colors.green;
@@ -49,9 +50,10 @@ class Square extends StatelessWidget {
     return isWhite ? color1 : color2; // Default square color
   }
 
+  //Returns null if no piece is on this square
   Widget? _buildPieceContent() {
     if (piece == null) return null;
-
+    //Shows the piece image with color based on piece color
     return Stack(
       children: [
         Image.asset(
@@ -60,16 +62,8 @@ class Square extends StatelessWidget {
           errorBuilder: (context, error, stackTrace) =>
               const Icon(Icons.error), // Fallback for missing images
         ),
-        if (isCastlingMove)
-          Positioned(
-            bottom: 2,
-            right: 2,
-            child: Icon(
-              Icons.castle,
-              size: 16,
-              color: piece!.isWhite ? Colors.black : Colors.white,
-            ),
-          ),
+
+        //Castling Indicator
       ],
     );
   }
