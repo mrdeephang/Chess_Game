@@ -1,5 +1,5 @@
 import 'package:chess_game/models/piece.dart';
-import 'package:chess_game/easyconst/color.dart';
+import 'package:chess_game/easyconst/colors.dart';
 import 'package:flutter/material.dart';
 
 class Square extends StatelessWidget {

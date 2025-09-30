@@ -1,7 +1,7 @@
 import 'package:chess_game/models/deadpiece.dart';
 import 'package:chess_game/models/piece.dart';
 import 'package:chess_game/models/square.dart';
-import 'package:chess_game/easyconst/color.dart';
+import 'package:chess_game/easyconst/colors.dart';
 import 'package:chess_game/helper/helper_methods.dart';
 import 'package:flutter/material.dart';
 

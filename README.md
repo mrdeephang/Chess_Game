@@ -18,9 +18,7 @@
 
 ## Packages Used(Minimalist)
 
-- flutter_launcher_icons(For App Icon)
 - lottie (For Splash Animation Loading)
-- UI is simply updated using SetState((){})
 
 ## Folder Structure
 
@@ -30,7 +28,7 @@
 │ │ ├── piece.dart #Defines the chess piece model with properties like type, color, and movement rules.
 │ │ ├── square.dart #Represents an individual chessboard square that can contain a piece and handle interactions.
 │ ├── easyconst/
-│ │ ├── color.dart #constant color values used for the chessboard and UI elements
+│ │ ├── colors.dart #constant color values used for the chessboard and UI elements
 │ ├── helper/
 │ │ ├── helper_methods.dart #utility functions for game logic
 │ ├── screens/
@@ -47,7 +45,7 @@
 ## Future Enhancement
 
 - Add play with AI
-- Adding Undo Option
+- Adding Undo Option(single step)
 - Promoting of Pawn when it reaches Opponent End
 - Locally save game progress even when game is closed using (sharedpreferences or sqlite or hive)
 
