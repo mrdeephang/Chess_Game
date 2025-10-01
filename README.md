@@ -2,6 +2,12 @@
 
 **Chess game made using flutter within a short time constraint**
 
+## Screenshots
+
+<img src="https://github.com/user-attachments/assets/b843d9b4-8947-4db0-9e1e-df842e04592f" alt="Image 1" width="300"/>
+<img src="https://github.com/user-attachments/assets/66223d3f-d4d0-4a1f-bbea-944dce4e37dc" alt="Image 2" width="300"/>
+
+
 ## Features
 
 - Two Players can play
