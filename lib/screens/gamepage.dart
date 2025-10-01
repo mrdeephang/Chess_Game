@@ -37,7 +37,7 @@ class _GamePageState extends State<GamePage> {
 
   @override
   void initState() {
-    super.initState(); //unpacking the board 
+    super.initState(); //unpacking the board
     _initializeBoard(); //sets up the chessboard (places pieces in starting positions).
   }
 
@@ -516,7 +516,6 @@ class _GamePageState extends State<GamePage> {
 
   //Move Piece
   void movePiece(int newRow, int newCol) {
-    
     bool isCastling =
         selectedPiece!.type == ChessPieceType.king &&
         (selectedCol - newCol).abs() == 2;
@@ -767,21 +766,21 @@ class _GamePageState extends State<GamePage> {
         padding: const EdgeInsets.only(top: 5, bottom: 5),
         child: Column(
           children: [
-            Card(
-              elevation: 8,
-              color: Colors.black,
-              child: Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Text(
-                  'Black',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
+            // Card(
+            //   elevation: 8,
+            //   color: Colors.black,
+            //   child: Padding(
+            //     padding: const EdgeInsets.all(5.0),
+            //     child: Text(
+            //       'Black',
+            //       style: TextStyle(
+            //         color: Colors.white,
+            //         fontSize: 16,
+            //         fontWeight: FontWeight.bold,
+            //       ),
+            //     ),
+            //   ),
+            // ),
             //whitepieces killed
             Expanded(
               child: GridView.builder(
@@ -850,21 +849,21 @@ class _GamePageState extends State<GamePage> {
                 ),
               ),
             ),
-            Card(
-              elevation: 8,
-              color: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Text(
-                  'White',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
+            // Card(
+            //   elevation: 8,
+            //   color: Colors.white,
+            //   child: Padding(
+            //     padding: const EdgeInsets.all(5.0),
+            //     child: Text(
+            //       'White',
+            //       style: TextStyle(
+            //         color: Colors.black,
+            //         fontSize: 16,
+            //         fontWeight: FontWeight.bold,
+            //       ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
